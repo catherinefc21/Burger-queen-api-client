@@ -6,6 +6,7 @@ export const Orders = () => {
       <header>
         <div className="logo"></div>
       </header>
+      <h1>Vista para mesero</h1>
     </div>
   )
 };

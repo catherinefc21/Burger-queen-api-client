@@ -1,50 +1,79 @@
-import { useRef, useState, useEffect, useContext } from 'react';
-import AuthContext from './functions/functions.js'
-import axios from './api/axios.js';
 import "./login.css";
+import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
- 
-const LOGIN_URL = '/auth';
 
-export const Login = () => {
-    const { setAuth } = useContext(AuthContext);
-    const userRef = useRef();
-    const errRef = useRef();
+export function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
-    const [user, setUser] = useState('');
-    const [pwd, setPwd] = useState('');
-    const [errMsg, setErrMsg] = useState('');
-    const [success, setSuccess] = useState(false);
+  const navigate = useNavigate(); // Hook de navegación
 
-    useEffect(() => {
-        userRef.current.focus();
-    }, [])
+  const handleLogin = async () => {
+      try {
+      const loginData = {
+        email: email,
+        password: password,
+      };
+   const response = await axios.post("http://localhost:8080/login", loginData);
 
-    useEffect(() => {
-        setErrMsg('');
-    }, [user, pwd])
- 
+      if (response.status === 200) {
+       // const accessToken = response.data.accessToken;
+       // console.log("Inicio de sesión exitoso. Token:", accessToken);
+        // ** Crear constante cuando arreglemos la api = const userRole = response.data.user.role; 
+        // Verificar el rol y redirigir
+        if (response.data.user.role === "admin") {
+          navigate("/Products"); // Redirección para el administrador
+        } else if (response.data.user.rol === "Waiter") {
+          navigate("/Orders"); // Redirección para el mesero
+        } else {
+          navigate("/Chef"); // Redirección para chef
+        }
+      } else {
+        //console.error("Credenciales incorrectas");
+      }
+    } catch (error) {
+      if (email === '' || password === '') {
+        setError('¡Todos los campos son obligatorios!');
+      } else {
+        setError('¡Los datos ingresados son incorrectos!');
+        //console.error('Error:', error);
+      }
+    }
+  };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  
+    try {
+      await handleLogin();
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
   return (
     <div className="container">
     <section className="section-container">
       <form 
-      className='login'
-      onSubmit={handleSubmit}>
+      className='login' onSubmit={handleSubmit}>
       <div className="logo1"></div>
-        <h1>login</h1>
-        <input
+        <input className="inputEmail"
           type='text'
-          value={user}
-          onChange={(e) => setUser(e.target.value)}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
         />
-        <input
+        <input className="inputPassword"
           type='password'
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          placeholder="Contraseña"
         />
-        <button>Iniciar sesión</button>
-        {error && <p>Todos los campos son obligatorios</p>}
+         {error && <b><p className='errorMessage'>{error}</p></b>}
+    
+        <button className="buttonColor">Iniciar sesión</button>
       </form>
     </section>
     </div>

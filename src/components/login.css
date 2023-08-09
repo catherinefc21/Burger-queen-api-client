@@ -1,3 +1,7 @@
+@font-face {
+    font-family: 'Suez One';
+    src: url('.../fonts/SuezOne.ttf') format('ttf');
+}
 .login{
     display: flex;
     justify-content: center;
@@ -5,6 +9,7 @@
     align-items: center;
     gap: 1rem;
     height: 100vh; /* El 50% de la altura de la ventana del navegador */
+    
 
 }
 .container{
@@ -24,9 +29,53 @@
     width: 50%; /* El 50% del ancho del contenedor .login */
 }
 .logo1{
-    width: 48%;
-    height: 20%;
+    width: 45%;
+    height: 30%;
     background-image: url('img/logo.png');
     background-size: cover;
     background-repeat: no-repeat;
+    margin-bottom: 120px;
+}
+
+.inputEmail{
+    background-color: #ECFEB3;
+    border-radius: 18px;
+    width: 220px;
+    height: 35px;
+    padding-left: 30px;
+    color: rgb(78, 76, 76);
+    background-image: url('img/user.png');
+    background-size: 18px , auto;
+    background-position: 10px 8px;
+    background-repeat: no-repeat;
+    outline: none;
+    cursor: text;
+    
+}
+.inputPassword{
+    background-color: #ECFEB3;
+    border-radius: 18px;
+    width: 220px;
+    height: 35px;
+    padding-left: 30px;
+    color: rgb(78, 76, 76);
+    background-image: url('img/password.png');
+    background-size: 18px , auto;
+    background-position: 10px 8px;
+    background-repeat: no-repeat;
+    outline: none;
+    cursor: text;
+}
+.buttonColor{
+    background-color: #68902B;
+    font-family: 'Suez One', sans-serif;
+    border-radius: 25px;
+    width: 255px;
+    height: 40px;
+    color: #ffff;
+}
+.errorMessage{
+    color: #D48B07;
+    font-size: 14px;
+
 }
