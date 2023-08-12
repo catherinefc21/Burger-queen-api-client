@@ -7,14 +7,11 @@ const authLogin = async (inputValue) => {
       },
       body: JSON.stringify(inputValue),
     });
-    if (!response.ok) {
-      throw new Error("Error en la conexión con el servidor");
-    }
     const data = await response.json();
     return data;
   } catch (error) {
     console.error(error);
-    throw new Error("Error en la conexión con el servidor: " + error.message);
+    throw new Error("Error en la conexión con el servidor");
   }
 };
 

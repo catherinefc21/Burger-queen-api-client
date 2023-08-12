@@ -28,7 +28,12 @@ export const useLoginInside = () => {
     try {
       const response = await authLogin(loginData);
       console.log(response);
+      // Guardar en localStorage
+      localStorage.setItem("token", response.accessToken);
+      localStorage.setItem("userId", response.user.id);
+
       const role = response.user.role;
+
       console.log(role);
       const adminRole = role === "admin";
       const waiterRole = role === "waiter";
