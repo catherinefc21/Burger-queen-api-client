@@ -38,7 +38,7 @@ const Login = () => {
             </b>
           )}
           <button className='buttonColor' type='submit'>
-            Iniciar sesión
+            INGRESAR
           </button>
         </form>
       </section>

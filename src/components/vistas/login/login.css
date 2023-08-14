@@ -1,7 +1,5 @@
-@font-face {
-    font-family: 'Suez One';
-    src: url('.../fonts/SuezOne.ttf') format('ttf');
-}
+@import url('https://fonts.googleapis.com/css2?family=Suez+One&display=swap');
+
 .login{
     display: flex;
     justify-content: center;
@@ -68,7 +66,7 @@
 }
 .buttonColor{
     background-color: #68902B;
-    font-family: 'Suez One', sans-serif;
+    font-family: 'Suez One', serif;
     border-radius: 25px;
     width: 255px;
     height: 40px;
@@ -77,5 +75,6 @@
 .errorMessage{
     color: #D48B07;
     font-size: 14px;
+    font-family: 'Suez One', serif;
 
 }
