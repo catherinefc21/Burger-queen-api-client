@@ -1,0 +1,16 @@
+.container{
+    margin: 0 auto;
+    padding: 0;
+    height: 100vh; /* El 100% de la altura de la ventana del navegador */
+    width: 100%;
+    background-image: url('img/fondo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.section-container {
+    position: absolute;
+    top: 0px;
+    right: 0;
+    height: 100vh; /* El 100% de la altura de la ventana del navegador */
+    width: 50%; /* El 50% del ancho del contenedor .login */
+}

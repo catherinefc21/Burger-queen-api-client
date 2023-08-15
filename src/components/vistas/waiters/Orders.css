@@ -1,0 +1,87 @@
+body{
+    margin: 0 auto;
+    background-color: #292525;
+}
+header{
+    background-image: url('./img/banner.png');
+    height: 16vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: right;
+    align-items: rigth;
+    align-content: rigth;
+}
+.labelMenu{
+    width: 90px;
+    height: 30px;
+    z-index: 1;
+    background-color: #D48B07;
+    color: #ffff;
+    margin-top: 100px;
+    margin-right: 20px;
+    font-weight: 450;
+    display: flex;
+    justify-content: center;
+    border-radius: 15px 15px 0 0;
+    font-size: 18px;
+    
+}
+    
+.logo{
+    background-image: url('./img/logo2.png');
+    height: 8vh;
+    width: 40%;
+    background-repeat: no-repeat;
+    margin-top: 30px;
+}
+.buttonbreakfast{
+    width: 180px;
+    height: 40px;
+    background-color: #68902B;
+    border-radius: 20px;
+    color: #ECFEB3;
+    font-weight: 450;
+    font-size: 18px;
+}
+.buttonLunch{
+    width: 180px;
+    height: 40px;
+    background-color: transparent;
+    border: solid #68902B;
+    border-radius: 20px;
+    color: #ECFEB3;
+    font-weight: 450;
+    font-size: 18px;
+}  
+.buttonsClients{
+    display: flex;
+    justify-content: space-around;
+} 
+.buttons{
+    width: 500px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    display: flex;
+    gap: 20px;
+}
+.clients{
+    width: 500px;
+    height: 50px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.inputClient{
+    width: 180px;
+    height: 35px;
+    border-radius: 10px;
+    background-color: #ECFEB3;
+    padding-left: 10px;
+    font-size: 18px;
+}

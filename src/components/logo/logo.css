@@ -1,0 +1,10 @@
+.logoBq{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh; /* El 50% de la altura de la ventana del navegador */
+}
+.logoBq img {
+    width: 270px;
+    height: auto;
+}
