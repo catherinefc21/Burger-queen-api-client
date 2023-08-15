@@ -6,7 +6,7 @@ export const Chef = () => {
       <header>
         <div className='logo'></div>
       </header>
-      <h1>Vista para Chef</h1>
+      <h1>Vista Chef</h1>
     </div>
   );
 };
