@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Suez+One&display=swap');
+.products{
+    background-color: #000000;
+    border-radius: 20px;
+    width: 389px;
+    height: 101px;
+    font-size: 18px;
+    font-family: 'Suez One', serif;
+    color: #ffff;
+    display: flex;
+    justify-content: row;
+    gap: 10px;
+}
+.img{
+    width: 100px;
+
+}
+.products img{
+    width: 100%;
+}
+.productName{
+    margin-top: 15px;
+    width: 250px;
+    height: 20px;
+}

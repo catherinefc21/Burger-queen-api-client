@@ -30,8 +30,8 @@ export const useLoginInside = () => {
       console.log(response);
 
       // Guardar en localStorage
-      /*localStorage.setItem("token", response.accessToken);
-      localStorage.setItem("userId", response.user.id);*/
+      localStorage.setItem("token", response.accessToken);
+      localStorage.setItem("userId", response.user.id);
 
       const role = response.user.role;
       console.log(role);

@@ -1,35 +1,46 @@
+import Banner from "../../banner/banner.jsx";
+import ButtonGreen from "../../buttons/buttonGreen.jsx";
+import AddOrders from "../../addOrders/addOrders.jsx";
+import InputClient from "../../inputClient/inputClient.jsx";
+import Menu from "../../menu/menu.jsx";
+import useFetchProducts from "../../../functions/waiter";
+
 import "./Orders.css";
 
 export const Orders = () => {
+  const products = useFetchProducts(); // Obtiene los productos usando el hook
   return (
     <div className='Orders'>
-      <header>
-        <div className='logo'></div>
-        <div className='labelMenu'>Menú</div>
-      </header>
+      <Banner />
       <div className='buttonsClients'>
         <div className='buttons'>
-          <button className='buttonbreakfast'>Desayuno</button>
-          <button className='buttonLunch'>Almuerzo-Cena</button>
+          <ButtonGreen buttonText='Desayuno' />
+          <ButtonGreen buttonText='Almuerzo-Cena' />
         </div>
         <div className='clients'>
-          <input
+          <InputClient
             type='text'
             name='name'
-            className='inputClient'
-            id='client'
-            placeholder='Nombre Cliente'
+            id='customName'
+            placeholder='Nombre del cliente'
           />
-          <input
-            type='text'
-            name='name'
-            className='inputClient'
-            id='clients'
-            placeholder='N° Mesa'
+          <InputClient
+            type='number'
+            name='table'
+            id='table'
+            placeholder='N° de mesa'
           />
         </div>
-        <div className='optionsMenu'></div>
-        <div className='createOrders'></div>
+      </div>
+      <div className='main'>
+        <div className='menu'>
+          {products.map((product) => (
+            <Menu key={product.id} product={product} />
+          ))}
+        </div>
+        <div className='containerOrders'>
+          <AddOrders />
+        </div>
       </div>
     </div>
   );

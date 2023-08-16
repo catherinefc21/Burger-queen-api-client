@@ -1,17 +1,3 @@
-body{
-    margin: 0 auto;
-    background-color: #292525;
-}
-header{
-    background-image: url('./img/banner.png');
-    height: 16vh;
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: right;
-    align-items: rigth;
-    align-content: rigth;
-}
 .labelMenu{
     width: 90px;
     height: 30px;
@@ -28,22 +14,6 @@ header{
     
 }
     
-.logo{
-    background-image: url('./img/logo2.png');
-    height: 8vh;
-    width: 40%;
-    background-repeat: no-repeat;
-    margin-top: 30px;
-}
-.buttonbreakfast{
-    width: 180px;
-    height: 40px;
-    background-color: #68902B;
-    border-radius: 20px;
-    color: #ECFEB3;
-    font-weight: 450;
-    font-size: 18px;
-}
 .buttonLunch{
     width: 180px;
     height: 40px;
@@ -65,7 +35,6 @@ header{
     justify-content: center;
     align-items: center;
     margin-top: 50px;
-    display: flex;
     gap: 20px;
 }
 .clients{
@@ -76,12 +45,36 @@ header{
     justify-content: center;
     align-items: center;
     gap: 20px;
+    margin-right: 50px;
 }
-.inputClient{
-    width: 180px;
-    height: 35px;
-    border-radius: 10px;
-    background-color: #ECFEB3;
-    padding-left: 10px;
-    font-size: 18px;
+
+.main{
+    width: 100%;
+    height: 550px ;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 50px;
+    gap: 20px;
+    margin: 10px;
+}
+.menu{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    gap: 25px;
+    align-items: center;
+    margin-top: 20px;
+}
+.containerOrders{
+    width: 45%;
+    height: 88%;
+    border-radius: 17px;
+    background: #000;
+    display: flex;
+    flex-direction: center;
+    margin-right: 100px;
+    margin-bottom: 44px;
+
 }
