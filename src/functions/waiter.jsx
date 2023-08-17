@@ -3,6 +3,7 @@ import menuRequest from "./menuRequest";
 
 const useFetchProducts = () => {
   const [products, setProducts] = useState([]);
+  const [showProducts, setShowProducts] = useState(true);
 
   useEffect(() => {
     menuRequest()
@@ -13,8 +14,29 @@ const useFetchProducts = () => {
         console.error("Error fetching products:", error);
       });
   }, []);
-  console.log(products);
-  return products;
+  const breakfastProducts = products.filter(
+    (product) => product.type === "Desayuno"
+  );
+  const lunchProducts = products.filter(
+    (product) => product.type === "Almuerzo"
+  );
+
+  // funcion para boton desayuno(me debe mostrar los productos al hacer click)
+  const handleShowBreakfastClick = () => {
+    setShowProducts(true);
+  };
+  // funcion para boton Almuerzo(me debe mostrar los productos al hacer click)
+  const handleShowlunchClick = () => {
+    setShowProducts(false);
+  };
+
+  return {
+    showProducts,
+    breakfastProducts,
+    lunchProducts,
+    handleShowBreakfastClick,
+    handleShowlunchClick,
+  };
 };
 
 export default useFetchProducts;

@@ -1,3 +1,4 @@
+import React from "react";
 import Banner from "../../banner/banner.jsx";
 import ButtonGreen from "../../buttons/buttonGreen.jsx";
 import AddOrders from "../../addOrders/addOrders.jsx";
@@ -8,14 +9,30 @@ import useFetchProducts from "../../../functions/waiter";
 import "./Orders.css";
 
 export const Orders = () => {
-  const products = useFetchProducts(); // Obtiene los productos usando el hook
+  const {
+    showProducts,
+    breakfastProducts,
+    lunchProducts,
+    handleShowBreakfastClick,
+    handleShowlunchClick,
+  } = useFetchProducts();
+
   return (
     <div className='Orders'>
       <Banner />
       <div className='buttonsClients'>
         <div className='buttons'>
-          <ButtonGreen buttonText='Desayuno' />
-          <ButtonGreen buttonText='Almuerzo-Cena' />
+          <ButtonGreen
+            buttonText='Desayuno'
+            isActive={showProducts}
+            onClickHandler={handleShowBreakfastClick}
+          />
+
+          <ButtonGreen
+            buttonText='Almuerzo-Cena'
+            isActive={!showProducts}
+            onClickHandler={handleShowlunchClick}
+          />
         </div>
         <div className='clients'>
           <InputClient
@@ -34,15 +51,24 @@ export const Orders = () => {
       </div>
       <div className='main'>
         <div className='menu'>
-          {products.map((product) => (
-            <Menu key={product.id} product={product} />
-          ))}
+          {showProducts
+            ? breakfastProducts.map((product) => (
+                <Menu key={product.id} product={product} />
+              ))
+            : lunchProducts.map((product) => (
+                <Menu key={product.id} product={product} />
+              ))}
         </div>
         <div className='containerOrders'>
+          <h1>
+            ORDEN
+            <div className='linea'></div>
+          </h1>
           <AddOrders />
         </div>
       </div>
     </div>
   );
 };
+
 export default Orders;
