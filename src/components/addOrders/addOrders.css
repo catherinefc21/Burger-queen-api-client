@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Suez+One&display=swap');
 .addorders{
     display: flex;
     flex-direction: row;
@@ -6,5 +7,35 @@
     margin-top: 20px;
     margin-left: 30px;
 }
+.minus-pluss{
+    color: #ECFEB3;
+    background-color: #68902B;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+}
+.delete{
+    background-image: url('img/delete.png');
+    
+}
+.product{
+    font-size: 17px;
+    color: #fff;
+    font-family: 'Suez One', serif;
+    width: 250px;
 
-
+}
+.amount{
+    font-size: 17px;
+    color: #fff;
+    font-family: 'Suez One', serif;
+    width: 25px;
+    text-align: center;
+}
+.total{
+    font-size: 17px;
+    color: #fff;
+    font-family: 'Suez One', serif;
+    width: 95px;
+    text-align: center;
+}

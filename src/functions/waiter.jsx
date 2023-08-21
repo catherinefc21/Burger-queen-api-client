@@ -4,6 +4,7 @@ import menuRequest from "./menuRequest";
 const useFetchProducts = () => {
   const [products, setProducts] = useState([]);
   const [showProducts, setShowProducts] = useState(true);
+  const [addProduct, setAddProducts] = useState([]);
 
   useEffect(() => {
     menuRequest()
@@ -29,13 +30,35 @@ const useFetchProducts = () => {
   const handleShowlunchClick = () => {
     setShowProducts(false);
   };
+  // crear funcion de agregar productos(me debe crear el div con productos cuando hago click en el botón agregar)
+  const handleAddProduct = (product) => {
+    const existingOrder = addProduct.find(
+      (order) => order.product.id === product.id
+    );
+    if (!existingOrder) {
+      const newOrder = {
+        id: addProduct.length + 1,
+        product: product,
+        amount: 1,
+        total: product.price,
+      };
+      setAddProducts([...addProduct, newOrder]);
+    }
+  };
+  // funcion de restar
 
+  // funcion establecer cantidad
+  // función sumar
+  // funcion total
+  // funcion delete
   return {
     showProducts,
     breakfastProducts,
     lunchProducts,
+    addProduct,
     handleShowBreakfastClick,
     handleShowlunchClick,
+    handleAddProduct,
   };
 };
 

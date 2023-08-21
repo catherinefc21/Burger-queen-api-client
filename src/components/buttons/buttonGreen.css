@@ -2,7 +2,7 @@
 
 .buttonGreen.active {
     width: 190px;
-    height: 40px;
+    height: 50px;
     background-color: #68902B;
     border-radius: 17px;
     color: #ECFEB3;
@@ -12,7 +12,7 @@
 }
 .buttonGreen.inactive {
     width: 190px;
-    height: 40px;
+    height: 50px;
     border: solid 5px #68902B;
     background-color: transparent;
     border-radius: 17px;
