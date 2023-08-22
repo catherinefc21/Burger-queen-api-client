@@ -10,9 +10,12 @@
 .minus-pluss{
     color: #ECFEB3;
     background-color: #68902B;
+    width: 25px;
+    height: 25px;
     font-size: 15px;
     display: flex;
     align-items: center;
+    border-radius: 5px;
 }
 .delete{
     background-image: url('img/delete.png');
@@ -39,3 +42,4 @@
     width: 95px;
     text-align: center;
 }
+

@@ -30,14 +30,14 @@ const useFetchProducts = () => {
   const handleShowlunchClick = () => {
     setShowProducts(false);
   };
-  // crear funcion de agregar productos(me debe crear el div con productos cuando hago click en el botón agregar)
+  // crear funcion de agregar productos(si el producto ya se agregó no se ejecuta la función)
   const handleAddProduct = (product) => {
     const existingOrder = addProduct.find(
       (order) => order.product.id === product.id
     );
     if (!existingOrder) {
       const newOrder = {
-        id: addProduct.length + 1,
+        id: product.id,
         product: product,
         amount: 1,
         total: product.price,
@@ -45,12 +45,43 @@ const useFetchProducts = () => {
       setAddProducts([...addProduct, newOrder]);
     }
   };
-  // funcion de restar
+  // funcion de restar productos
+  const handleMinusProduct = (order) => {
+    if (order.amount > 1) {
+      order.amount = order.amount - 1;
+      setAddProducts([...addProduct]);
+    }
+  };
 
-  // funcion establecer cantidad
-  // función sumar
+  // función sumar un producto
+  const handlePlussProduct = (order) => {
+    order.amount = order.amount + 1;
+    setAddProducts([...addProduct]);
+  };
   // funcion total
+  const totalProduct = (order) => {
+    return order.total * order.amount;
+  };
+
   // funcion delete
+  const handleDeleteProduct = (orderId) => {
+    const updatedOrders = addProduct.filter((order) => order.id !== orderId);
+    setAddProducts(updatedOrders);
+  };
+
+  /* Funcion suma total
+  const totalAmount = (orderAmount) => {
+    const orderSum = addProduct.filter((order) => order.amount === orderAmount);
+    const totalOrderSum = orderSum.reduce(
+      (Accumulator, current) => Accumulator + current
+    );
+    return totalOrderSum;
+  };*/
+
+  // Calcular el total de la orden
+  const calculateTotalOrder = () => {
+    return addProduct.reduce((total, order) => total + totalProduct(order), 0);
+  };
   return {
     showProducts,
     breakfastProducts,
@@ -59,6 +90,11 @@ const useFetchProducts = () => {
     handleShowBreakfastClick,
     handleShowlunchClick,
     handleAddProduct,
+    handleMinusProduct,
+    handlePlussProduct,
+    totalProduct,
+    handleDeleteProduct,
+    calculateTotalOrder,
   };
 };
 

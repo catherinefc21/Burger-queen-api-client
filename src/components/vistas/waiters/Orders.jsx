@@ -18,6 +18,11 @@ export const Orders = () => {
     handleShowBreakfastClick,
     handleShowlunchClick,
     handleAddProduct,
+    handleMinusProduct,
+    handlePlussProduct,
+    totalProduct,
+    handleDeleteProduct,
+    calculateTotalOrder,
   } = useFetchProducts();
 
   return (
@@ -76,23 +81,22 @@ export const Orders = () => {
         </div>
         <div className='orders-container'>
           <div className='black-container'>
-            <div>
-              <h1>ORDEN</h1>
-              <div className='line'></div>
-              {addProduct.map((order) => (
-                <AddOrders
-                  key={order.id}
-                  product={order.product.name}
-                  amount={order.amount}
-                  total={order.total}
-                  onClickMinus={() => handleMinusClick(order.id)}
-                  onClickPluss={() => handlePlusClick(order.id)}
-                  onClickDelete={() => handleDeleteClick(order.id)}
-                />
-              ))}
-              <br />
-              <div className='line'></div>
-            </div>
+            <h1 className='title'>ORDEN</h1>
+            <div className='line'></div>
+            {addProduct.map((order) => (
+              <AddOrders
+                key={order.id}
+                product={order.product.name}
+                amount={order.amount}
+                total={totalProduct(order)}
+                onClickMinus={() => handleMinusProduct(order)}
+                onClickPluss={() => handlePlussProduct(order)}
+                onClickDelete={() => handleDeleteProduct(order.id)}
+              />
+            ))}
+            <br />
+            <div className='line'></div>
+            <div className='text'>Total ${calculateTotalOrder()}</div>
           </div>
         </div>
       </div>
