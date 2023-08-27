@@ -1,5 +1,5 @@
 import React from "react";
-import "./menu.css";
+import "../../styles/kitchen/menu.css";
 
 const Menu = ({ product, children }) => {
   const { name, price, image } = product;
