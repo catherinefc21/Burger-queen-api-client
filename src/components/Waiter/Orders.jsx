@@ -1,6 +1,6 @@
 import React from "react";
 import Banner from "../banner/banner.jsx";
-import ButtonAdd from "../buttonAdd/buttonAdd.jsx";
+import ButtonSmall from "../buttonSmall/ButtonSmall.jsx";
 import ButtonGreen from "../buttons/buttonGreen.jsx";
 import SendButton from "../sendButton/sendButton.jsx";
 import AddProductToOrder from "../addProducts/addProducts.jsx";
@@ -9,6 +9,7 @@ import Menu from "./Menu.jsx";
 import { useState, useEffect } from "react";
 import apiRequest from "../../services/apiRequest.js";
 import Modal from "../modal/modal.jsx";
+import Swal from "sweetalert2";
 
 import "../../styles/kitchen/orders.css";
 
@@ -18,8 +19,8 @@ export const Orders = () => {
   const [addProduct, setAddProduct] = useState([]);
   const [clientName, setClientName] = useState("");
   const [clientTable, setClientTable] = useState("");
-  const [modalSendOrder, setModalSendOrder] = useState(false);
-  const [modalErrorOrder, setModalErrorOrder] = useState(false);
+  //onst [modalSendOrder, setModalSendOrder] = useState(false);
+  //const [modalErrorOrder, setModalErrorOrder] = useState(false);
 
   useEffect(() => {
     apiRequest("/products", "GET").then((data) => {
@@ -83,8 +84,15 @@ export const Orders = () => {
   // función enviar nueva order
   const handleNewOrder = async () => {
     if (addProduct.length === 0 || clientName === "" || clientTable === "") {
-      setModalErrorOrder(true);
-      console.log("Error: Agrega nombre del cliente y agrega productos");
+      //setModalErrorOrder(true);
+      Swal.fire({
+        title: "Error",
+        html: "<span class='text'>Por favor agrega productos, nombre de cliente y N° mesa.</span>",
+        icon: "warning",
+        confirmButtonText: "Ok",
+        confirmButtonColor: "#68902B",
+      });
+
       return;
     }
 
@@ -110,7 +118,14 @@ export const Orders = () => {
       const response = await apiRequest("/orders", "POST", newOrder);
 
       if (response) {
-        setModalSendOrder(true);
+        // setModalSendOrder(true);
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Tu orden ha sido enviada",
+          confirmButtonText: "Aceptar",
+          confirmButtonColor: "#68902B",
+        });
         console.log("Tu orden ha sido generada con éxito");
         // Restablecer los estados a un estado inicial vacío
         setAddProduct([]);
@@ -160,7 +175,7 @@ export const Orders = () => {
             .filter((product) => product.type === showProducts)
             .map((product) => (
               <Menu key={product.id} product={product}>
-                <ButtonAdd
+                <ButtonSmall
                   buttonText='Agregar'
                   functionButton={handleAddProduct}
                   product={product}
@@ -185,21 +200,6 @@ export const Orders = () => {
               buttonText='Enviar Orden'
               onClickHandler={handleNewOrder}
             />
-            {modalSendOrder && (
-              <Modal
-                close={() => setModalSendOrder(false)}
-                title={"ORDEN ENVIADA"}
-              >
-                <p>Tu orden ha sido enviada con éxito.</p>
-                <img src='../../img/ok.png' alt='ok' />
-              </Modal>
-            )}
-            {modalErrorOrder && (
-              <Modal close={() => setModalErrorOrder(false)} title={"ERROR"}>
-                <p>Debes ingresar: Nombre Cliente, Mesa y Productos</p>
-                <img src='../../img/error.png' alt='error' />
-              </Modal>
-            )}
           </div>
         </div>
       </div>

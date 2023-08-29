@@ -44,7 +44,7 @@ export const useLoginInside = () => {
       } else if (waiterRole) {
         route = "/Orders";
       } else if (chefRole) {
-        route = "/Chef";
+        route = "/Kitchen";
       }
       navigate(route);
     } catch (error) {

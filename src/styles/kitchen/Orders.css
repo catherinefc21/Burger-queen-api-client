@@ -14,6 +14,21 @@
     font-size: 18px;
     
 } */
+.swal2-title {
+    font-family: Suez one, sans-serif;
+    color: #D48B07; 
+}
+.text{
+    color: #fff !important;
+    font-family: Suez one, sans-serif;
+
+}
+.swal2-container {
+    background: #4035358e !important;
+}
+.swal2-popup{
+background-color: #000;
+}
 .buttonsClients{
     display: flex;
     justify-content: space-around;
