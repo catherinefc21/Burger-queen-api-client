@@ -1,0 +1,26 @@
+.info-products{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30px;
+    justify-content: center;
+    gap: 20px;
+}
+.products-admin{
+    width: 80%;
+    max-height: 60%;
+    overflow-y: scroll;
+    
+}
+.products-admin::-webkit-scrollbar {
+    width: 13px;
+  }
+  
+.products-admin::-webkit-scrollbar-thumb {
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    margin-right: 20px;
+  }
+.product-name{
+    width: 300px;
+    font-size: 20px;
+}

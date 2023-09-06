@@ -1,10 +1,10 @@
 import React from "react";
-import "../../styles/kitchen/menu.css";
+import "./menu.css";
 
 const Menu = ({ product, children }) => {
   const { name, price, image } = product;
   return (
-    <div className='products'>
+    <div className='products-menu'>
       <div className='img'>
         <img src={image} alt={name} />
       </div>

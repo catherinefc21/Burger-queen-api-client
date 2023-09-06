@@ -1,0 +1,18 @@
+.back-neworders{
+    background-image: url('../../../img/logout.png');
+    background-size: 30px , auto;
+    background-position: 10px 5px;
+    background-repeat: no-repeat;
+    padding-left: 31px;
+    outline: none;
+    background-color: #D48B07;
+    border: none;
+    width: 50px;
+    height: 40px;
+    border-radius: 10px;
+    font-family: 'Suez One', serif;
+    font-size: 18px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+

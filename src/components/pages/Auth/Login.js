@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import authLogin from "../../services/authService.js";
+import authLogin from "../../../services/authService.js";
 
 export const useLoginInside = () => {
   const [email, setEmail] = useState("");
@@ -34,15 +34,14 @@ export const useLoginInside = () => {
       localStorage.setItem("userId", response.user.id);
 
       const role = response.user.role;
-      console.log(role);
       const adminRole = role === "admin";
       const waiterRole = role === "waiter";
       const chefRole = role === "chef";
       let route = "/";
       if (adminRole) {
-        route = "/Products";
+        route = "/Admin";
       } else if (waiterRole) {
-        route = "/Orders";
+        route = "/NewOrders";
       } else if (chefRole) {
         route = "/Kitchen";
       }

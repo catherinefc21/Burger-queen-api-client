@@ -1,26 +1,24 @@
 import React from "react";
-import Banner from "../banner/banner.jsx";
-import ButtonSmall from "../buttonSmall/ButtonSmall.jsx";
-import ButtonGreen from "../buttons/buttonGreen.jsx";
-import SendButton from "../sendButton/sendButton.jsx";
-import AddProductToOrder from "../addProducts/addProducts.jsx";
-import InputClient from "../inputClient/inputClient.jsx";
-import Menu from "./Menu.jsx";
+import Banner from "../../banner/banner.jsx";
+import ButtonSmall from "../../ButtonSmall/ButtonSmall.jsx";
+import ButtonGreen from "../../Button/ButtonGreen.jsx";
+import SendButton from "../../SendButton/SendButton.jsx";
+import AddProductToOrder from "../../AddProducts/AddProducts.jsx";
+import InputClient from "../../InputClient/InputClient.jsx";
+import Menu from "../../Menu/Menu.jsx";
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import apiRequest from "../../services/apiRequest.js";
-import Modal from "../modal/modal.jsx";
+import apiRequest from "../../../services/apiRequest.js";
 import Swal from "sweetalert2";
 
-import "../../styles/kitchen/orders.css";
+import "./newOrders.css";
 
-export const Orders = () => {
+export const NewOrders = () => {
   const [products, setProducts] = useState([]); // products = valor inicial y setProducts actualiza el valor
   const [showProducts, setShowProducts] = useState("Desayuno");
   const [addProduct, setAddProduct] = useState([]);
   const [clientName, setClientName] = useState("");
   const [clientTable, setClientTable] = useState("");
-  //onst [modalSendOrder, setModalSendOrder] = useState(false);
-  //const [modalErrorOrder, setModalErrorOrder] = useState(false);
 
   useEffect(() => {
     apiRequest("/products", "GET").then((data) => {
@@ -87,7 +85,7 @@ export const Orders = () => {
       //setModalErrorOrder(true);
       Swal.fire({
         title: "Error",
-        html: "<span class='text'>Por favor agrega productos, nombre de cliente y N° mesa.</span>",
+        html: "<span class='text-swal2'>Por favor agrega productos, nombre de cliente y N° mesa.</span>",
         icon: "warning",
         confirmButtonText: "Ok",
         confirmButtonColor: "#68902B",
@@ -136,10 +134,21 @@ export const Orders = () => {
       console.error("Error al crear la orden:", error.message);
     }
   };
+  // funcion para botón que envia a pedidos listos para entregar
+  const navigate = useNavigate();
+  const handleOrdersReady = () => {
+    // Eliminar los datos del localStorage al cerrar sesión
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("userId");
+
+    navigate("/Orders");
+  };
 
   return (
     <div className='Orders'>
-      <Banner />
+      <Banner>
+        <button className='btn-orders' onClick={handleOrdersReady}></button>
+      </Banner>
       <div className='buttonsClients'>
         <div className='buttons'>
           <ButtonGreen
@@ -207,4 +216,4 @@ export const Orders = () => {
   );
 };
 
-export default Orders;
+export default NewOrders;

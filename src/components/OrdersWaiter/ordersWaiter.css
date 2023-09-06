@@ -1,0 +1,99 @@
+.orders-ready {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 60%;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: scroll;
+    margin-left: 50px;
+  }
+  
+  .orders-ready::-webkit-scrollbar {
+    width: 13px;
+  }
+  
+  .orders-ready::-webkit-scrollbar-thumb {
+    background-color: #D9D9D9;
+    border-radius: 10px;
+  }
+  
+  .container-list {
+    border-radius: 10px;
+    width: 85%;
+    min-height: 18%;
+    font-size: 18px;
+    color: #ffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #000000;
+    box-sizing: border-box; 
+  }  
+.details{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly; 
+    /*color: #D48B07;*/
+}
+
+.infoClient{
+    display: flex;
+    align-items: center;
+    width: 150px;
+    font-size: 23px;
+}
+.infoClient img{
+    margin-right: 10px;
+    width: 25%;
+}
+.products{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 300px;
+}
+.btnGreen{
+    width: 59px;
+    height: 54px;
+    background-color: #68902B;
+    border-radius: 10px;
+    color: #ECFEB3;
+    font-weight: 450;
+    font-size: 18px;
+    font-family: 'Suez One', serif;
+    align-self: center;
+    background-image: url('../../../img/check.png');
+    background-size: 45px , auto;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.btn{
+    width: 160px;
+    height: 50px;
+    background-color: #68902B;
+    border-radius: 17px;
+    color: #ECFEB3;
+    font-weight: 450;
+    font-size: 18px;
+    font-family: 'Suez One', serif;
+    align-self: center;
+    text-align: left;
+    background-image: url('../../../img/detalle.png');
+    background-size: 40px , auto;
+    background-position: right;
+    background-repeat: no-repeat;
+}
+h2{
+    margin-bottom: 30px;
+    margin-top: 30px;
+
+}
+.text-swal2{
+    color: #fff;
+    font-family: Suez one, sans-serif;
+    font-size: 20px;
+}

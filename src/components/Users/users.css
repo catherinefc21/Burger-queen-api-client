@@ -1,0 +1,56 @@
+
+.info-users{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30px;
+    justify-content: center;
+    gap: 5px
+}
+.users{
+    width: 80%;
+    max-height: 50%;
+    overflow-y: scroll;
+    
+}
+.users::-webkit-scrollbar {
+    width: 13px;
+  }
+  
+.users::-webkit-scrollbar-thumb {
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    margin-right: 20px;
+  }
+
+.btn-edit{
+    width: 120px;
+    height: 35px;
+    background-color: #68902B;
+    border-radius: 20px;
+    color: #ECFEB3;
+    font-weight: 450;
+    font-size: 15px;
+    font-family: 'Suez One', serif;
+    
+}
+.delete-admin{
+    width: 120px;
+    height: 35px;
+    background-color: #68902B;
+    border-radius: 20px;
+    color: #ECFEB3;
+    font-weight: 450;
+    font-size: 15px;
+    font-family: 'Suez One', serif;
+   
+}
+.info-users{
+    
+    font-size: 20px;
+}
+.email{
+width: 220px;
+}
+.role{
+    width: 100px;
+}
